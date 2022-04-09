@@ -1,6 +1,10 @@
 name: "Regex validator"
 description: "Validate a text against a regex pattern"
 author: "Aleksander Fidelus"
+branding:
+  icon: "check-square"
+  color: "black"
+
 inputs:
   REGEX_PATTERN:
     required: true
