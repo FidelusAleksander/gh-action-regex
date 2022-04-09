@@ -11,13 +11,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Validate Title
-        uses: ./
+        uses: FidelusAleksander/gh-action-regex@master
         with:
           regex_pattern: "#[0-9]{5}"
           regex_match_type: match
           text: ${{ github.event.pull_request.title }}
       - name: ADO WorkItem in description
-        uses: ./
+        uses: FidelusAleksander/gh-action-regex@master
         continue-on-error: true
         id: ado
         with:
