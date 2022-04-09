@@ -1,5 +1,5 @@
-name: "Python Container Action Template"
-description: "Get started with Python Container actions"
+name: "Regex validator"
+description: "Validate a text against a regex pattern"
 author: "Aleksander Fidelus"
 inputs:
   REGEX_PATTERN:
