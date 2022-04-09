@@ -6,19 +6,19 @@ branding:
   color: "black"
 
 inputs:
-  REGEX_PATTERN:
+  regex_pattern:
     required: true
     description: "Regex pattern to match the text against"
-  TEXT:
+  text:
     required: true
     description: "Text to evaluate"
-  REGEX_MATCH_TYPE:
+  regex_match_type:
     required: false
     description: "Regex match type to use. One of [search, match, fullmatch]"
     default: "search"
 outputs:
-  MATCH:
-    description: "true if TEXT matches the REGEX_PATTERN"
+  match:
+    description: "true if text matches the regex_pattern"
 runs:
   using: "docker"
   image: "Dockerfile"

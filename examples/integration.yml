@@ -1,0 +1,37 @@
+name: Integration
+on:
+  pull_request:
+    types: [ opened, reopened, synchronize, edited]
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Validate Title
+        uses: FidelusAleksander/gh-action-regex@master
+        with:
+          regex_pattern: "#[0-9]{5}"
+          regex_match_type: match
+          text: ${{ github.event.pull_request.title }}
+      - name: ADO WorkItem in description
+        uses: FidelusAleksander/gh-action-regex@master
+        continue-on-error: true
+        id: ado
+        with:
+          regex_pattern: "https://example.visualstudio.com/_apis/wit/workItems/[0-9]+"
+          regex_match_type: search
+          text: ${{ github.event.pull_request.body }}
+      - uses: actions/github-script@v5
+        if: steps.ado.outputs.match == 'false'
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '👋 Update the Description with link to ADO WorkItem!'
+            })
