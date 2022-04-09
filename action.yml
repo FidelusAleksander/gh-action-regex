@@ -1,0 +1,20 @@
+name: "Python Container Action Template"
+description: "Get started with Python Container actions"
+author: "Aleksander Fidelus"
+inputs:
+  REGEX_PATTERN:
+    required: true
+    description: "Regex pattern to match the text against"
+  TEXT:
+    required: true
+    description: "Text to evaluate"
+  REGEX_MATCH_TYPE:
+    required: false
+    description: "Regex match type to use. One of [search, match, fullmatch]"
+    default: "search"
+outputs:
+  MATCH:
+    description: "true if TEXT matches the REGEX_PATTERN"
+runs:
+  using: "docker"
+  image: "Dockerfile"
