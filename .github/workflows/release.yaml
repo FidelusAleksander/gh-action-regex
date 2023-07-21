@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - semantic-release
   workflow_dispatch:
 
 jobs:
