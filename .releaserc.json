@@ -1,5 +1,5 @@
 {
-    "branches": ["master"],
+    "branches": ["master", "semantic-release"],
     "repositoryUrl": "https://github.com/FidelusAleksander/gh-action-regex",
     "debug": "true",
     "plugins": [
