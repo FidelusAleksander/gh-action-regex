@@ -20,7 +20,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          #persist-credentials: false # TODO: change when using PAT for protected branches
+          persist-credentials: false
           fetch-depth: 0
       - name: Release
         uses: cycjimmy/semantic-release-action@v3.4.2
@@ -29,4 +29,4 @@ jobs:
           extra_plugins: |
             conventional-changelog-conventionalcommits@4.6.3
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
