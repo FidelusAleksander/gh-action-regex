@@ -40,7 +40,7 @@ class Action:
             pattern=self.regex_pattern, string=self.text
         )
         self._print_result(bool(result))
-        gha.set_output(name="match", value=result)
+        gha.set_output(name="match", value=json.dumps(result))
         sys.exit(0 if result else 1)
 
 
