@@ -1,4 +1,4 @@
-name: Dry Run Release
+name: Check PR
 
 on:
   pull_request:
