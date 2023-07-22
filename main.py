@@ -22,20 +22,20 @@ class Action:
             regex_match_type=os.environ["INPUT_REGEX_MATCH_TYPE"],
         )
 
-    def _validate_input(self):
+    def _validate_input(self) -> None:
         if self.regex_match_type not in self.SUPPORTED_REGEX_MATCH_TYPES:
             print(
                 f"Regex match type {self.regex_match_type} has to be one of {self.SUPPORTED_REGEX_MATCH_TYPES}"
             )
             sys.exit(1)
 
-    def _print_result(self, successful: bool):
+    def _print_result(self, successful: bool) -> None:
         body = vars(self)
         body["match"] = successful
         print(json.dumps(body))
         print(f"::set-output name=match::{json.dumps(successful)}")
 
-    def run(self):
+    def run(self) -> None:
         result = getattr(re, self.regex_match_type)(
             pattern=self.regex_pattern, string=self.text
         )
