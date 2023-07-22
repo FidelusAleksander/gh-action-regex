@@ -1,8 +1,7 @@
-name: Release
+name: Check Pull Request
 
 on:
-  workflow_dispatch:
-  push:
+  pull_request:
     branches:
       - master
 
@@ -10,20 +9,17 @@ jobs:
   release:
     name: release
     runs-on: ubuntu-latest
-    if: github.repository_owner == 'FidelusAleksander'
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          #persist-credentials: false # TODO: change when using PAT for protected branches
-          fetch-depth: 0
-      - name: Release
+
+      - name: Dry Run Release
         uses: cycjimmy/semantic-release-action@v3.4.2
         with:
-          semantic_version: 19.0.5
           extra_plugins: |
             @semantic-release/git
             @semantic-release/changelog
           dry_run: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
