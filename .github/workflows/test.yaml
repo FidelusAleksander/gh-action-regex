@@ -21,10 +21,9 @@ jobs:
           text: ${{ github.repository }}
       - name: Check match
         run: |
-          if [ "${{ steps.regex-validator.outputs.match }}" = "true" ]; then
-            echo "Match output is true!"
-            # Do additional actions if the match is true
+          match=${{ steps.regex-validator.outputs.match }}
+          if [ $match = true ]; then
+            echo "Test Success!"
           else
-            echo "Match output is not true!"
-            exit 1 # Exit with an error status if the match is not true
+            echo "Test failure!" && exit 1
           fi
