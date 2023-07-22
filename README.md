@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Validate Title
-        uses: FidelusAleksander/gh-action-regex@v0.2.0
+        uses: FidelusAleksander/gh-action-regex@v0.3.0
         with:
           regex_pattern: "#[0-9]{5}"
           regex_match_type: match
@@ -31,7 +31,7 @@ Check for a link anywhere inside Pull Request's description.
 If not found, use official [github-script](https://github.com/marketplace/actions/github-script) action to post a comment in the PR
 ```yaml
 - name: ADO WorkItem in description
-  uses: FidelusAleksander/gh-action-regex@v0.2.0
+  uses: FidelusAleksander/gh-action-regex@v0.3.0
   continue-on-error: true
   id: ado
   with:
