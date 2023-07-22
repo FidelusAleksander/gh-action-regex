@@ -1,4 +1,6 @@
-FROM gcr.io/distroless/python3-debian10
-ADD main.py /app/main.py
+FROM python:3.10.12-alpine3.18
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+COPY main.py /app/main.py
 WORKDIR /app
-CMD ["/app/main.py"]
+CMD ["python" , "/app/main.py"]

@@ -2,6 +2,7 @@ import json
 import re
 import sys
 import os
+import github_action_utils as gha
 
 
 class Action:
@@ -24,23 +25,24 @@ class Action:
 
     def _validate_input(self) -> None:
         if self.regex_match_type not in self.SUPPORTED_REGEX_MATCH_TYPES:
-            print(
+            gha.error(
                 f"Regex match type {self.regex_match_type} has to be one of {self.SUPPORTED_REGEX_MATCH_TYPES}"
             )
             sys.exit(1)
 
-    def _print_result(self, successful: bool) -> None:
+    def _print_result(self, match_successful: bool) -> None:
         body = vars(self)
-        body["match"] = successful
-        print(json.dumps(body))
-        print(f"::set-output name=match::{json.dumps(successful)}")
+        body["match"] = match_successful
+        gha.debug(json.dumps(body))
 
     def run(self) -> None:
-        result = getattr(re, self.regex_match_type)(
+        match = getattr(re, self.regex_match_type)(
             pattern=self.regex_pattern, string=self.text
         )
-        self._print_result(bool(result))
-        sys.exit(0 if result else 1)
+        match_successful = bool(match)
+        self._print_result(match_successful)
+        gha.set_output(name="match", value=json.dumps(match_successful))
+        sys.exit(0 if match_successful else 1)
 
 
 if __name__ == "__main__":
