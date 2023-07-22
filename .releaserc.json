@@ -1,9 +1,7 @@
 {
     "branches": ["master"],
     "repositoryUrl": "https://github.com/FidelusAleksander/gh-action-regex",
-    "debug": "true",
   "plugins": [
-    "@semantic-release/git",
     [
       "@semantic-release/commit-analyzer",
       {
@@ -30,6 +28,7 @@
         "labels": false,
         "releasedLabels": false
       }
-    ]
+    ],
+      "@semantic-release/git"
   ]
 }
