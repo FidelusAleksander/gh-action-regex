@@ -1,0 +1,20 @@
+name: Test
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    name: Self Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Regex Validator
+        uses: ./
+        with:
+          regex_pattern: "^FidelusAleksander.*regex$"
+          regex_match_type: match
+          text: ${{ github.repository }}
