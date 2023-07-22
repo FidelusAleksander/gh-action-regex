@@ -41,7 +41,7 @@ class Action:
         )
         match_successful = bool(match)
         self._print_result(match_successful)
-        gha.set_output(name="match", value=match_successful)
+        gha.set_output(name="match", value=json.dumps(match_successful))
         sys.exit(0 if match_successful else 1)
 
 
