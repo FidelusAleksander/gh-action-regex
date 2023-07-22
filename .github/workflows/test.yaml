@@ -13,8 +13,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Regex Validator
+        id: regex-validator
         uses: ./
         with:
           regex_pattern: "^FidelusAleksander.*regex$"
           regex_match_type: match
           text: ${{ github.repository }}
+      - name: Check match
+        run: |
+          if [ "${{ steps.regex-validator.outputs.match }}" = "true" ]; then
+            echo "Match output is true!"
+            # Do additional actions if the match is true
+          else
+            echo "Match output is not true!"
+            exit 1 # Exit with an error status if the match is not true
+          fi

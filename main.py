@@ -33,7 +33,7 @@ class Action:
         body = vars(self)
         body["match"] = successful
         print(json.dumps(body))
-        print(f"::set-output name=match::{json.dumps(successful)}")
+        print(f'"match={json.dumps(successful)}" >> $GITHUB_OUTPUT"')
 
     def run(self) -> None:
         result = getattr(re, self.regex_match_type)(
