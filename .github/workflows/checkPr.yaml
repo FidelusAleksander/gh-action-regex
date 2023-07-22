@@ -16,5 +16,6 @@ jobs:
         uses: cycjimmy/semantic-release-action@v3.4.2
         with:
           dry_run: true
+          ci: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
