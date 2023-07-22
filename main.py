@@ -30,18 +30,19 @@ class Action:
             )
             sys.exit(1)
 
-    def _print_result(self, successful: bool) -> None:
+    def _print_result(self, match_successful: bool) -> None:
         body = vars(self)
-        body["match"] = successful
+        body["match"] = match_successful
         gha.debug(json.dumps(body))
 
     def run(self) -> None:
-        result = getattr(re, self.regex_match_type)(
+        match = getattr(re, self.regex_match_type)(
             pattern=self.regex_pattern, string=self.text
         )
-        self._print_result(bool(result))
-        gha.set_output(name="match", value=json.dumps(result))
-        sys.exit(0 if result else 1)
+        match_successful = bool(match)
+        self._print_result(match_successful)
+        gha.set_output(name="match", value=match_successful)
+        sys.exit(0 if match_successful else 1)
 
 
 if __name__ == "__main__":
