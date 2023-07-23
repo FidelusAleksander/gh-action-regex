@@ -1,6 +1,10 @@
 # Regex Validator Action
 
-This action will check Your input text against a regex pattern
+![Tests workflow](https://github.com/FidelusAleksander/gh-action-regex/actions/workflows/test.yaml/badge.svg)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/FidelusAleksander/gh-action-regex?logo=GitHub)](https://github.com/cicirello/Chips-n-Salsa/releases)
+
+
+This action will check any text input against a regex pattern
 
 
 ### Example workflow
