@@ -3,4 +3,4 @@ COPY setup.py setup.py
 RUN pip install .
 COPY validator/ /validator/
 WORKDIR /validator
-CMD ["python" , "/validator/main.py"]
+CMD ["python" , "/validator/run.py"]
