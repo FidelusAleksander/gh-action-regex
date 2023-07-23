@@ -2,15 +2,15 @@
 
 Contributions are welcome!
 
-## Checklist
+## Setup
+Setup local python virtual environment and install the package
 
-- [ ] Add [semantics prefix](#semantic-pull-requests) to your PR or Commits
-- [ ] CI tests are passing
-- [ ] `pre-commit run -a` hooks are passing
+    python -m venv venv
+    pip install .[all]
 
 ## Semantic Pull Requests
 
-To generate changelog, Pull Requests or Commits must have semantic and must follow conventional specs below:
+Pull Requests or Commits must have semantic and must follow conventional specs below:
 
 - `feat:` New features
 - `fix:` Bug fixes
