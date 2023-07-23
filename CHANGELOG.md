@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.0](https://github.com/FidelusAleksander/gh-action-regex/compare/v0.3.0...v0.4.0) (2023-07-23)
+
+
+### Features
+
+* Add pydantic validation ([#17](https://github.com/FidelusAleksander/gh-action-regex/issues/17)) ([92cddfe](https://github.com/FidelusAleksander/gh-action-regex/commit/92cddfee504f2c11272e26939d67df2e8066e1b2))
+
 ## [0.3.0](https://github.com/FidelusAleksander/gh-action-regex/compare/v0.2.1...v0.3.0) (2023-07-22)
 
 
