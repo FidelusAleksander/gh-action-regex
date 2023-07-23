@@ -1,14 +1,15 @@
-from validator.main import Action
-import pytest
+from validator.model import ActionInput
+from validator.action import Action
 
 
-@pytest.mark.parametrize("regex_match_type", ["not_supported_match_type", "MATCH"])
-def test_validate_incorrect_input(regex_match_type: str):
-    with pytest.raises(SystemExit) as exc_info:
-        Action(
-            regex_match_type=regex_match_type,
-            regex_pattern="^test",
-            text="test_validate_input",
-        )
+def test_action():
+    action_input = ActionInput(
+        regex_match_type="match",
+        regex_pattern="^test",
+        text="test_validate_input",
+    )
 
-    assert exc_info.value.code == 1
+    action = Action(action_input=action_input)
+
+    action_output = action.run()
+    assert action_output.match_ is True
