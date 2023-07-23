@@ -1,4 +1,3 @@
-import github_action_utils as gha
 from validator.model import ActionInput
 from validator.action import Action
 import os

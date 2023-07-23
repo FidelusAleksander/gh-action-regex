@@ -1,7 +1,6 @@
 import json
 import re
 import sys
-import os
 import github_action_utils as gha
 from validator.model import ActionInput
 
