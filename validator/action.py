@@ -1,8 +1,7 @@
 import json
 import re
-import sys
 import github_action_utils as gha
-from validator.model import ActionInput
+from validator.model import ActionInput, ActionOutput
 
 
 class Action:
@@ -10,15 +9,14 @@ class Action:
         self.action_input = action_input
 
     def _print_result(self, match_successful: bool) -> None:
-        body = vars(self)
-        body["match"] = match_successful
-        gha.debug(json.dumps(body))
+        result_dict = self.action_input.model_dump()
+        result_dict["match"] = match_successful
+        gha.debug(json.dumps(result_dict))
 
-    def run(self) -> None:
+    def run(self) -> ActionOutput:
         match = getattr(re, self.action_input.regex_match_type)(
             pattern=self.action_input.regex_pattern, string=self.action_input.text
         )
         match_successful = bool(match)
         self._print_result(match_successful)
-        gha.set_output(name="match", value=json.dumps(match_successful))
-        sys.exit(0 if match_successful else 1)
+        return ActionOutput(match=match_successful)
