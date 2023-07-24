@@ -11,10 +11,6 @@
         "preset": "conventionalcommits",
         "releaseRules": [
           {
-            "type": "docs",
-            "release": "patch"
-          },
-          {
             "type": "refactor",
             "release": "patch"
           },
@@ -24,10 +20,6 @@
           },
           {
             "type": "test",
-            "release": "patch"
-          },
-          {
-            "type": "wip",
             "release": "patch"
           }
         ],
