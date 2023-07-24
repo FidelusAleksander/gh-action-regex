@@ -24,9 +24,9 @@
         "preset": "conventionalcommits",
         "presetConfig": {
         "types": [
-          { "type": "feat", "section": "Features" },
-          { "type": "fix", "section": "Bug Fixes" },
-          { "type": "docs", "section": "Documentation", "hidden": false }
+          { "type": "feat", "section": "FeaturesLOL" },
+          { "type": "fix", "section": "Bug FixesLOL" },
+          { "type": "docs", "section": "Documentation", "hidden": true }
     ]
   }
       }
