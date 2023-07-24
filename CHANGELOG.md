@@ -9,8 +9,6 @@ All notable changes to this project will be documented in this file.
 
 * **Python:** Updated simple action/model tests ([#19](https://github.com/FidelusAleksander/gh-action-regex/issues/19)) ([9070c0e](https://github.com/FidelusAleksander/gh-action-regex/commit/9070c0ede9d59611f12b22598235466e338e5871))
 
-### [0.4.1](https://github.com/FidelusAleksander/gh-action-regex/compare/v0.4.0...v0.4.1) (2023-07-23)
-
 ## [0.4.0](https://github.com/FidelusAleksander/gh-action-regex/compare/v0.3.0...v0.4.0) (2023-07-23)
 
 
