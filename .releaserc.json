@@ -26,7 +26,7 @@
         "types": [
           { "type": "feat", "section": "FeaturesLOL" },
           { "type": "fix", "section": "Bug FixesLOL" },
-          { "type": "docs", "section": "Documentation", "hidden": true }
+          { "type": "docs", "section": "Documentation" }
     ]
   }
       }
