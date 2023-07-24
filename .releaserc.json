@@ -1,20 +1,41 @@
 {
-    "branches": ["master", "semantic-release-updates"],
-    "repositoryUrl": "https://github.com/FidelusAleksander/gh-action-regex",
+  "branches": [
+    "master",
+    "semantic-release-updates"
+  ],
+  "repositoryUrl": "https://github.com/FidelusAleksander/gh-action-regex",
   "plugins": [
     [
       "@semantic-release/commit-analyzer",
       {
         "preset": "conventionalcommits",
         "releaseRules": [
-          { "type": "docs", "release": "patch"},
-          { "type": "refactor", "release": "patch"},
-          { "type": "style", "release": "patch" },
-          { "type": "test", "release": "patch" },
-          { "type": "wip", "release": "patch" }
+          {
+            "type": "docs",
+            "release": "patch"
+          },
+          {
+            "type": "refactor",
+            "release": "patch"
+          },
+          {
+            "type": "style",
+            "release": "patch"
+          },
+          {
+            "type": "test",
+            "release": "patch"
+          },
+          {
+            "type": "wip",
+            "release": "patch"
+          }
         ],
         "parserOpts": {
-          "noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES"]
+          "noteKeywords": [
+            "BREAKING CHANGE",
+            "BREAKING CHANGES"
+          ]
         }
       }
     ],
@@ -23,14 +44,27 @@
       {
         "preset": "conventionalcommits",
         "presetConfig": {
-        "types": [
-          { "type": "feat", "section": "FeaturesLOL" },
-          { "type": "fix", "section": "Bug FixesLOL" },
-          { "type": "docs", "section": "Documentation" }
-    ],
-                  "parserOpts": {
-          "noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES", "BREAKING"]
-        }
+          "types": [
+            {
+              "type": "feat",
+              "section": "FeaturesLOL"
+            },
+            {
+              "type": "fix",
+              "section": "Bug FixesLOL"
+            },
+            {
+              "type": "docs",
+              "section": "Documentation"
+            }
+          ],
+          "parserOpts": {
+            "noteKeywords": [
+              "BREAKING CHANGE",
+              "BREAKING CHANGES",
+              "BREAKING"
+            ]
+          }
         }
       }
     ],
@@ -49,6 +83,6 @@
         "releasedLabels": false
       }
     ],
-      "@semantic-release/git"
+    "@semantic-release/git"
   ]
 }
