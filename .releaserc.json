@@ -1,5 +1,5 @@
 {
-    "branches": ["master"],
+    "branches": ["master", "semantic-release-updates"],
     "repositoryUrl": "https://github.com/FidelusAleksander/gh-action-regex",
   "plugins": [
     [
@@ -10,7 +10,8 @@
           { "type": "docs", "release": "patch"},
           { "type": "refactor", "release": "patch"},
           { "type": "style", "release": "patch" },
-          { "type": "test", "release": "patch" }
+          { "type": "test", "release": "patch" },
+          { "type": "wip", "release": "patch" }
         ],
         "parserOpts": {
           "noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES"]
