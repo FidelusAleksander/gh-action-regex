@@ -27,8 +27,11 @@
           { "type": "feat", "section": "FeaturesLOL" },
           { "type": "fix", "section": "Bug FixesLOL" },
           { "type": "docs", "section": "Documentation" }
-    ]
-  }
+    ],
+                  "parserOpts": {
+          "noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES", "BREAKING"]
+        }
+        }
       }
     ],
     [
