@@ -21,7 +21,14 @@
     [
       "@semantic-release/release-notes-generator",
       {
-        "preset": "angular"
+        "preset": "angular",
+        "presetConfig": {
+        "types": [
+          { "type": "feat", "section": "Features" },
+          { "type": "fix", "section": "Bug Fixes" },
+          { "type": "docs", "section": "Documentation", "hidden": false }
+    ]
+  }
       }
     ],
     [
