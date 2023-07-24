@@ -16,6 +16,10 @@ inputs:
     required: false
     description: "Regex match type to use. One of [search, match, fullmatch]"
     default: "search"
+  fail_when_no_match:
+    required: false
+    description: "Whether the action should fail if there is no regex match."
+    default: 'true'
 outputs:
   match:
     description: "true if text matches the regex_pattern"

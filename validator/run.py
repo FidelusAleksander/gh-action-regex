@@ -10,7 +10,9 @@ action_input = ActionInput(
     regex_pattern=os.environ["INPUT_REGEX_PATTERN"],
     text=os.environ["INPUT_TEXT"],
     regex_match_type=os.environ["INPUT_REGEX_MATCH_TYPE"],
+    fail_when_no_match=os.environ["INPUT_FAIL_WHEN_NO_MATCH"],
 )
+
 action = Action(action_input=action_input)
 
 action_output = action.run()
