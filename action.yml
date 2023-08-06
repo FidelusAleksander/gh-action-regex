@@ -12,10 +12,6 @@ inputs:
   text:
     required: true
     description: "Text to evaluate"
-  regex_match_type:
-    required: false
-    description: "Regex match type to use. One of [search, match, fullmatch]"
-    default: "search"
 outputs:
   match:
     description: "true if text matches the regex_pattern"
