@@ -14,7 +14,6 @@ jobs:
         uses: FidelusAleksander/gh-action-regex@master
         with:
           regex_pattern: "#[0-9]{5}"
-          regex_match_type: match
           text: ${{ github.event.pull_request.title }}
       - name: ADO WorkItem in description
         uses: FidelusAleksander/gh-action-regex@master
@@ -22,7 +21,6 @@ jobs:
         id: ado
         with:
           regex_pattern: "https://example.visualstudio.com/_apis/wit/workItems/[0-9]+"
-          regex_match_type: search
           text: ${{ github.event.pull_request.body }}
       - uses: actions/github-script@v5
         if: steps.ado.outputs.match == 'false'

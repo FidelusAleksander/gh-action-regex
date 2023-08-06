@@ -2,9 +2,18 @@ from validator.model import ActionInput
 from validator.action import Action
 
 
-def test_action_match():
+def test_action_no_match():
     action_input = ActionInput(
-        regex_match_type="match",
+        regex_pattern="^text",
+        text="test_validate_input",
+    )
+    action = Action(action_input=action_input)
+    action_output = action.run()
+    assert action_output.match_ == False
+
+
+def test_action_beginning_match():
+    action_input = ActionInput(
         regex_pattern="^test",
         text="test_validate_input",
     )
@@ -13,12 +22,21 @@ def test_action_match():
     assert action_output.match_ == True
 
 
-def test_action_no_match():
+def test_action_end_match():
     action_input = ActionInput(
-        regex_match_type="match",
-        regex_pattern="^text",
+        regex_pattern="input$",
         text="test_validate_input",
     )
     action = Action(action_input=action_input)
     action_output = action.run()
-    assert action_output.match_ == False
+    assert action_output.match_ == True
+
+
+def test_action_beginning_end_match():
+    action_input = ActionInput(
+        regex_pattern="^test_validate_input$",
+        text="test_validate_input",
+    )
+    action = Action(action_input=action_input)
+    action_output = action.run()
+    assert action_output.match_ == True

@@ -14,7 +14,7 @@ class Action:
         gha.debug(json.dumps(result_dict))
 
     def run(self) -> ActionOutput:
-        match = getattr(re, self.action_input.regex_match_type)(
+        match = re.search(
             pattern=self.action_input.regex_pattern, string=self.action_input.text
         )
         match_successful = bool(match)

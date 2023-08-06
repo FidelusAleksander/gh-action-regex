@@ -26,7 +26,6 @@ jobs:
         uses: FidelusAleksander/gh-action-regex@v0.3.0
         with:
           regex_pattern: "#[0-9]{5}"
-          regex_match_type: match
           text: ${{ github.event.pull_request.title }}
 ```
 
@@ -40,7 +39,6 @@ If not found, use official [github-script](https://github.com/marketplace/action
   id: ado
   with:
     regex_pattern: "https://example.visualstudio.com/_apis/wit/workItems/[0-9]+"
-    regex_match_type: search
     text: ${{ github.event.pull_request.body }}
 - uses: actions/github-script@v5
   if: steps.ado.outputs.match == 'false'
@@ -62,7 +60,7 @@ If not found, use official [github-script](https://github.com/marketplace/action
 |------------------------------------------------------|-----------------------------------------------|
 | `text`  | Text to evaluate    |
 | `regex_pattern`  | Regex pattern to match the text against    |
-| `regex_match_type` _(default=search)_  | Regex match type to use. One of [search, match, fullmatch]  [docs](https://docs.python.org/3/library/re.html)|
+
 
 
 ### Outputs
@@ -76,7 +74,6 @@ If not found, use official [github-script](https://github.com/marketplace/action
 Action will print in stdout a log in following format:
 ```json
 {
-    "regex_match_type": "match",
     "regex_pattern": "#[0-9]{5}",
     "text": "#56570 Added test.py file",
     "match": true
