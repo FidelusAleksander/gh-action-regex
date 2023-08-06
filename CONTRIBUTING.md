@@ -10,7 +10,7 @@ Setup local python virtual environment and install the package
 
 ## Semantic Pull Requests
 
-Pull Requests or Commits must have semantic and must follow conventional specs below:
+Pull Requests title must follow the [conventionalcommits](https://www.conventionalcommits.org/en/v1.0.0/) specification. Allowed types are:
 
 - `feat:` New features
 - `fix:` Bug fixes
